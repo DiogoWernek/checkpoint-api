@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, Primary
 import { User } from '../../users/entities/user.entity';
 import { Game } from '../../games/entities/game.entity';
 
-@Entity('favorites')
+@Entity('cp_favorites')
 @Index(['userId', 'position'], { unique: true })
 export class Favorite {
   @PrimaryColumn({ name: 'user_id' })

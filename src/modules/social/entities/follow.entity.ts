@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 
-@Entity('follows')
+@Entity('cp_follows')
 @Index(['followingId'])
 export class Follow {
   @PrimaryColumn({ name: 'follower_id' })

@@ -4,7 +4,7 @@ import { User } from '../../users/entities/user.entity';
 import { Game } from '../../games/entities/game.entity';
 
 /** Diário — 1 linha por registro feito na tela Registrar (não confundir com GameState, que é 1 por jogo). */
-@Entity('logs')
+@Entity('cp_logs')
 @Index(['userId', 'createdAt'])
 @Index(['gameId'])
 export class Log {

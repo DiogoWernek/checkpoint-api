@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 /** Linha única (id fixo) — cache do access token de app da Twitch, dura ~60 dias. */
-@Entity('igdb_token')
+@Entity('cp_igdb_token')
 export class IgdbToken {
   @PrimaryColumn({ type: 'tinyint', default: 1 })
   id: number;

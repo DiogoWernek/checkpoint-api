@@ -5,7 +5,7 @@ import { Game } from '../../games/entities/game.entity';
 
 /** Estado atual de uma pessoa com um jogo — 1 linha por (user, game). Fonte das
  * ações rápidas e das médias/histograma (ver PLAN.md original §3.1). */
-@Entity('game_states')
+@Entity('cp_game_states')
 export class GameState {
   @PrimaryColumn({ name: 'user_id' })
   userId: string;

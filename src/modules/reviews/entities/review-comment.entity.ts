@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, Primary
 import { User } from '../../users/entities/user.entity';
 import { Review } from './review.entity';
 
-@Entity('review_comments')
+@Entity('cp_review_comments')
 @Index(['reviewId', 'createdAt'])
 export class ReviewComment {
   @PrimaryGeneratedColumn('uuid')

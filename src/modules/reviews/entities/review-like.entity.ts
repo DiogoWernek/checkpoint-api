@@ -2,7 +2,7 @@ import { CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from '
 import { User } from '../../users/entities/user.entity';
 import { Review } from './review.entity';
 
-@Entity('review_likes')
+@Entity('cp_review_likes')
 export class ReviewLike {
   @PrimaryColumn({ name: 'review_id' })
   reviewId: string;

@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 
-@Entity('lists')
+@Entity('cp_lists')
 @Index(['userId'])
 export class List {
   @PrimaryGeneratedColumn('uuid')

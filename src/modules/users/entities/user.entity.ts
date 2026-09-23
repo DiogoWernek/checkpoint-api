@@ -6,7 +6,7 @@ import { Exclude } from 'class-transformer';
  * separava `auth.users`/`cp_profiles` por causa do RLS) — aqui não há RLS,
  * então não faz sentido duas tabelas pra always-join-together.
  */
-@Entity('users')
+@Entity('cp_users')
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;

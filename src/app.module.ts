@@ -61,11 +61,14 @@ import { ListItem } from './modules/social/entities/list-item.entity';
         password: cs.get('DATABASE_PASSWORD') ?? '',
         database: cs.get('DATABASE_NAME') ?? 'checkpoint',
         charset: 'utf8mb4',
-        // true em dev: sem migrations por enquanto, o schema nasce das entities.
-        // Trocar por migrations antes de qualquer deploy real em produção.
-        synchronize: cs.get('NODE_ENV') !== 'production',
+        // Schema vem de migrations (src/migrations/), não mais de auto-sync —
+        // `npm run migration:run` (ver Dockerfile) roda antes do app subir.
+        synchronize: false,
         logging: cs.get('DATABASE_LOGGING') === 'true',
         timezone: 'Z',
+        // Banco compartilhado (`fops`) já tem uma tabela `migrations` própria do
+        // api-fops — nome separado evita as duas ferramentas TypeORM brigarem.
+        migrationsTableName: 'cp_migrations',
         entities: [
           User, Otp, RefreshToken,
           Game, IgdbToken,

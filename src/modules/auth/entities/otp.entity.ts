@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 import { OtpType } from '../../../common/enums/otp-type.enum';
 
-@Entity('otps')
+@Entity('cp_otps')
 @Index(['target', 'type'])
 export class Otp {
   @PrimaryGeneratedColumn('uuid')

@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, Primary
 import { List } from './list.entity';
 import { Game } from '../../games/entities/game.entity';
 
-@Entity('list_items')
+@Entity('cp_list_items')
 @Index(['listId', 'gameId'], { unique: true })
 export class ListItem {
   @PrimaryGeneratedColumn('uuid')

@@ -6,7 +6,7 @@ import { ReviewLike } from './review-like.entity';
 import { ReviewComment } from './review-comment.entity';
 
 /** No máximo uma review por registro (log) — o campo "review" da tela Registrar. */
-@Entity('reviews')
+@Entity('cp_reviews')
 @Index(['gameId', 'createdAt'])
 @Index(['userId'])
 export class Review {
