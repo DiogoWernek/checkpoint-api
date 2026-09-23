@@ -46,9 +46,6 @@ export class Log {
   @Column({ type: 'boolean', default: false, name: 'is_replay' })
   isReplay: boolean;
 
-  @Column({ type: 'json' })
-  tags: string[];
-
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 }

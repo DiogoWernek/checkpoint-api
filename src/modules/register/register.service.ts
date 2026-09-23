@@ -28,7 +28,6 @@ export class RegisterService {
           hours: dto.hours ?? null,
           platform: dto.platform ?? null,
           isReplay: dto.isReplay ?? false,
-          tags: dto.tags ?? [],
         }),
       );
 

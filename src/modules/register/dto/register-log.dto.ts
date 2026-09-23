@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { ArrayMaxSize, IsArray, IsBoolean, IsDateString, IsIn, IsInt, IsNumber, IsOptional, IsString, IsUUID, Max, MaxLength, Min } from 'class-validator';
+import { IsBoolean, IsDateString, IsIn, IsInt, IsNumber, IsOptional, IsString, IsUUID, Max, MaxLength, Min } from 'class-validator';
 import { GameStatus, REGISTER_STATUSES } from '../../../common/enums/game-status.enum';
 
 export class RegisterLogDto {
@@ -48,13 +48,6 @@ export class RegisterLogDto {
   @IsOptional()
   @IsBoolean()
   isReplay?: boolean;
-
-  @ApiPropertyOptional({ type: [String] })
-  @IsOptional()
-  @IsArray()
-  @ArrayMaxSize(10)
-  @IsString({ each: true })
-  tags?: string[];
 
   @ApiPropertyOptional()
   @IsOptional()
