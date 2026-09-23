@@ -40,8 +40,8 @@ export class UsersController {
   }
 
   @Get('perfil/:username')
-  @ApiOperation({ summary: 'Perfil público por username' })
+  @ApiOperation({ summary: 'Perfil público por username (sem e-mail)' })
   byUsername(@Param('username') username: string) {
-    return this.usersService.findByUsername(username);
+    return this.usersService.findPublicByUsername(username);
   }
 }

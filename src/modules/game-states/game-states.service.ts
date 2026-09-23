@@ -15,6 +15,12 @@ export interface FriendPlay {
   status: GameStatus;
 }
 
+export interface GameAggregateStats {
+  ratingCount: number;
+  average: number | null; // 1..10, escala do banco
+  histogram: number[]; // índice 0 = nota 1 (meia estrela) .. índice 9 = nota 10 (5 estrelas)
+}
+
 @Injectable()
 export class GameStatesService {
   constructor(
@@ -69,5 +75,19 @@ export class GameStatesService {
       rating: s.rating,
       status: s.status,
     }));
+  }
+
+  /** Média/histograma do jogo — calculado ao vivo (sem tabela de agregado mantida por trigger,
+   * igual o raciocínio do ProfileService: escala pessoal não justifica essa complexidade). */
+  async gameStats(gameId: string): Promise<GameAggregateStats> {
+    const states = await this.statesRepo.find({ where: { gameId } });
+    const ratings = states.map((s) => s.rating).filter((r): r is number => r != null);
+
+    const histogram = Array(10).fill(0) as number[];
+    for (const rating of ratings) histogram[rating - 1] = (histogram[rating - 1] ?? 0) + 1;
+
+    const average = ratings.length ? Math.round(ratings.reduce((sum, r) => sum + r, 0) / ratings.length) : null;
+
+    return { ratingCount: ratings.length, average, histogram };
   }
 }
